@@ -289,20 +289,19 @@ main { display: block; }
 
 /* ---------- Contact ---------- */
 .section--contact { }
-.contact__lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 50ch; margin: 0 0 1.4rem; }
-.contact__address {
-  font-style: normal; color: var(--ink-soft); line-height: 1.8;
-  margin: 0 0 1.6rem; font-size: .98rem;
-}
-.contact__address strong { color: var(--ink); }
+.contact__lede { font-size: 1.15rem; color: var(--ink-soft); max-width: 50ch; margin: 0 0 1.6rem; }
 .contact__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .7rem; }
 .contact__links a {
   text-decoration: none; font-weight: 500; font-size: .96rem;
   padding: .6rem 1.1rem; border-radius: 999px;
   border: 1px solid var(--line); color: var(--ink);
-  transition: border-color .2s, color .2s, transform .15s;
+  transition: border-color .2s, color .2s, background-color .2s, transform .15s;
 }
 .contact__links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.contact__links a.contact__primary {
+  background: var(--ink); color: var(--bg); border-color: var(--ink);
+}
+.contact__links a.contact__primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* ---------- Footer ---------- */
 .site-footer {
