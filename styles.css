@@ -11,8 +11,8 @@
   --ink-soft:     #4a4a52;   /* secondary text */
   --ink-faint:    #8a8a94;   /* tertiary / meta */
   --line:         #e7e6e1;   /* hairline borders */
-  --accent:       #3a4cff;   /* single restrained accent */
-  --accent-soft:  rgba(58, 76, 255, 0.10);
+  --accent:       #0a8f5c;   /* cool emerald accent */
+  --accent-soft:  rgba(10, 143, 92, 0.10);
 
   /* Type */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -33,8 +33,8 @@
   --ink-soft:     #b6b5ad;
   --ink-faint:    #76757d;
   --line:         #26262b;
-  --accent:       #8e9bff;
-  --accent-soft:  rgba(142, 155, 255, 0.14);
+  --accent:       #34d399;
+  --accent-soft:  rgba(52, 211, 153, 0.16);
 }
 
 /* ---------- Reset-ish ---------- */
