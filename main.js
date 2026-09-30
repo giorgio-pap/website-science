@@ -116,7 +116,25 @@
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
   }
 
+  function gaDisableFlag(off) {
+    window["ga-disable-" + GA_ID] = off;
+  }
+
+  function clearGaCookies() {
+    gaDisableFlag(true);
+    var host = location.hostname.replace(/^www\./, "");
+    document.cookie.split(";").forEach(function (c) {
+      var name = c.split("=")[0].trim();
+      if (name.indexOf("_ga") === 0 || name === "_gid" || name.indexOf("_gat") === 0) {
+        document.cookie = name + "=; Max-Age=0; path=/; domain=." + host;
+        document.cookie = name + "=; Max-Age=0; path=/; domain=" + host;
+        document.cookie = name + "=; Max-Age=0; path=/";
+      }
+    });
+  }
+
   function loadAnalytics() {
+    gaDisableFlag(false);
     if (window.__gaLoaded) return;
     window.__gaLoaded = true;
     window.dataLayer = window.dataLayer || [];
@@ -151,12 +169,14 @@
   if (declineBtn) {
     declineBtn.addEventListener("click", function () {
       writeConsent("denied");
+      clearGaCookies();
       hideConsent();
     });
   }
   if (resetBtn) {
     resetBtn.addEventListener("click", function () {
       try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
+      clearGaCookies();
       showConsent();
     });
   }

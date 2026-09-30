@@ -18,8 +18,14 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="theme-color" content="#ff5a1f" />
-
+  <meta name="theme-color" content="#07794d" />
+  <script>
+    try {
+      var t = localStorage.getItem("theme") ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="styles.css" />
 
   <!-- SEO: canonical + structured data -->
@@ -51,7 +57,7 @@
 
   <header class="site-header" id="top">
     <nav class="nav" aria-label="Primary">
-      <a class="nav__brand" href="#" aria-label="Giorgio Papitto — home">
+      <a class="nav__brand" href="/" aria-label="Giorgio Papitto — home">
         <span class="nav__mark" aria-hidden="true">◉</span>
         <span class="nav__name">Giorgio Papitto</span>
       </a>
@@ -503,7 +509,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+    <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="section__head">
         <span class="section__index">07</span>
         <h2 class="section__title" id="contact-title">Contact</h2>
@@ -521,7 +527,10 @@
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Giorgio Papitto</p>
-    <p class="site-footer__links"><a href="/privacy.html">Datenschutz</a></p>
+    <p class="site-footer__links">
+      <a href="/privacy.html">Datenschutz</a>
+      <a href="/impressum.html">Impressum</a>
+    </p>
   </footer>
 
   <aside class="consent" id="consent" hidden>
@@ -531,7 +540,7 @@
     </p>
     <div class="consent__actions">
       <button type="button" class="btn btn--ghost" id="consent-decline">Decline</button>
-      <button type="button" class="btn btn--primary" id="consent-accept">Accept</button>
+      <button type="button" class="btn btn--ghost" id="consent-accept">Accept</button>
     </div>
   </aside>
 
