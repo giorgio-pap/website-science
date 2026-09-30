@@ -93,6 +93,67 @@
     }).catch(function () {});
   }
 
+  /* ---------- Analytics consent ---------- */
+  var CONSENT_KEY = "analytics-consent";
+  var GA_ID = "G-89HEVGDWX1";
+  var consentEl = document.getElementById("consent");
+  var acceptBtn = document.getElementById("consent-accept");
+  var declineBtn = document.getElementById("consent-decline");
+  var resetBtn = document.getElementById("consent-reset");
+
+  function readConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+
+  function writeConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+  }
+
+  function loadAnalytics() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(script);
+  }
+
+  function hideConsent() {
+    if (consentEl) consentEl.hidden = true;
+  }
+
+  function showConsent() {
+    if (consentEl) consentEl.hidden = false;
+  }
+
+  var consent = readConsent();
+  if (consent === "granted") loadAnalytics();
+  else if (consent !== "denied") showConsent();
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      writeConsent("granted");
+      hideConsent();
+      loadAnalytics();
+    });
+  }
+  if (declineBtn) {
+    declineBtn.addEventListener("click", function () {
+      writeConsent("denied");
+      hideConsent();
+    });
+  }
+  if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+      try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
+      showConsent();
+    });
+  }
+
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
