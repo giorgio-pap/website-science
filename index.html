@@ -130,8 +130,19 @@
         </p>
       </div>
       <p class="listening" id="listening" hidden>
-        <span class="listening__label" id="listening-label">Last played</span>
-        <a class="listening__track" id="listening-track" href="https://listenbrainz.org/user/gio_pap/" target="_blank" rel="noopener"></a>
+        <a class="listening__brand" href="https://listenbrainz.org/user/gio_pap/" target="_blank" rel="noopener" aria-label="ListenBrainz profile">
+          <svg class="listening__logo" viewBox="0 0 27 30" aria-hidden="true" focusable="false">
+            <polygon fill="#353070" points="13 1 1 8 1 22 13 29 13 1"/>
+            <polygon fill="#eb743b" points="14 1 26 8 26 22 14 29 14 1"/>
+          </svg>
+        </a>
+        <span class="listening__copy">
+          <span class="listening__meta">
+            <span class="listening__label" id="listening-label">Last played</span>
+            <span class="listening__source">ListenBrainz</span>
+          </span>
+          <a class="listening__track" id="listening-track" href="https://listenbrainz.org/user/gio_pap/" target="_blank" rel="noopener"></a>
+        </span>
       </p>
       <ul class="tags" aria-label="Focus and tools">
         <li>Digital therapeutics</li>
