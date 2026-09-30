@@ -316,6 +316,20 @@ main { display: block; }
 }
 .tags li:hover { border-color: var(--accent); color: var(--accent); }
 
+.tag-groups {
+  list-style: none; margin: 1.8rem 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: .75rem;
+}
+.tag-groups li {
+  margin: 0; color: var(--ink-soft); font-size: .95rem; max-width: 68ch;
+}
+.tag-groups span {
+  display: block; margin-bottom: .15rem;
+  font-family: var(--font-mono);
+  font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
 /* ---------- Research cards ---------- */
 .cards { display: grid; gap: 2rem; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .cards { grid-template-columns: repeat(3, 1fr); gap: 2.4rem; } }
@@ -378,6 +392,16 @@ main { display: block; }
 }
 .pub__links a:hover { color: var(--accent); border-color: var(--accent); }
 
+.posters { margin-top: 1.8rem; }
+.posters summary {
+  cursor: pointer; color: var(--accent); font-size: .95rem; font-weight: 500;
+  list-style: none; width: max-content;
+}
+.posters summary::-webkit-details-marker { display: none; }
+.posters summary::before { content: "+ "; }
+.posters[open] summary::before { content: "– "; }
+.posters .pubs { margin-top: .4rem; }
+
 .media { list-style: none; margin: 0; padding: 0; }
 .media li {
   padding: .7rem 0; border-top: 1px solid var(--line);
@@ -404,14 +428,21 @@ main { display: block; }
 }
 .timeline { list-style: none; margin: 0; padding: 0; }
 .timeline__item {
-  display: grid; grid-template-columns: 130px 1fr; gap: 1rem;
+  display: grid; grid-template-columns: 148px 1fr; gap: 1rem;
   padding: 1.1rem 0; border-top: 1px solid var(--line);
 }
 .timeline__item:first-child { border-top: none; }
 .timeline__date { color: var(--ink-faint); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: .15rem; }
+.timeline__place { display: block; margin-top: .15rem; }
 .timeline__body h3 { margin: 0 0 .3rem; font-size: 1.02rem; letter-spacing: -0.01em; }
 .timeline__body h3 em { color: var(--ink-faint); font-weight: 400; font-size: .85em; }
 .timeline__body p { margin: 0; color: var(--ink-soft); font-size: .93rem; }
+.timeline__points {
+  margin: .55rem 0 0; padding-left: 1.1rem;
+}
+.timeline__points li {
+  color: var(--ink-soft); font-size: .93rem; margin: 0 0 .35rem;
+}
 
 .cv-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: .5rem; }
 @media (min-width: 720px) { .cv-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
