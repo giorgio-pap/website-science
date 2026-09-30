@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum — Giorgio Papitto</title>
+  <meta name="description" content="Impressum / legal notice for giorgiopapitto.eu." />
+  <meta name="author" content="Giorgio Papitto" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#07794d" />
+  <script>
+    try {
+      var t = localStorage.getItem("theme") ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="canonical" href="https://www.giorgiopapitto.eu/impressum.html" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav nav--simple" aria-label="Primary">
+      <a class="nav__brand" href="/" aria-label="Giorgio Papitto — home">
+        <span class="nav__mark" aria-hidden="true">◉</span>
+        <span class="nav__name">Giorgio Papitto</span>
+      </a>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy.html">Datenschutz</a></li>
+        <li><a href="/impressum.html" class="is-active">Impressum</a></li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch colour theme" title="Switch theme">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="impressum-title">
+      <p class="hero__eyebrow">Legal</p>
+      <h1 class="hero__title" id="impressum-title">Impressum</h1>
+      <p class="hero__role">Legal notice</p>
+    </section>
+
+    <section class="section legal" aria-labelledby="impressum-body-title">
+      <h2 id="impressum-body-title">Information according to § 5 DDG</h2>
+      <address>
+        Giorgio Papitto<br />
+        Via Provinciale 28<br />
+        03011, Alatri (FR)<br />
+        Italy
+      </address>
+      <div class="prose">
+        <p>
+          Email:
+          <a href="mailto:info.giorgiopapitto@gmail.com">info.giorgiopapitto@gmail.com</a>
+        </p>
+        <p>
+          This is a personal website. Postal mail for legal purposes can be sent
+          to the address above.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Giorgio Papitto</p>
+    <p class="site-footer__links">
+      <a href="/privacy.html">Datenschutz</a>
+      <a href="/impressum.html">Impressum</a>
+    </p>
+  </footer>
+
+  <aside class="consent" id="consent" hidden>
+    <p class="consent__text">
+      This site can use Google Analytics to count visits. It stays off unless you agree.
+      <a href="/privacy.html">Privacy policy</a>
+    </p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost" id="consent-decline">Decline</button>
+      <button type="button" class="btn btn--ghost" id="consent-accept">Accept</button>
+    </div>
+  </aside>
+
+  <script src="main.js"></script>
+</body>
+</html>
