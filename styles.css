@@ -167,7 +167,10 @@ main { display: block; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 
 .btn {
-  display: inline-flex; align-items: center; gap: .4rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  appearance: none; -webkit-appearance: none;
+  background: transparent;
+  color: var(--ink);
   text-decoration: none; font-weight: 500; font-size: .98rem;
   padding: .72rem 1.4rem; border-radius: 999px;
   border: 1px solid transparent; cursor: pointer;
@@ -175,9 +178,13 @@ main { display: block; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn--primary { background: var(--ink); color: var(--bg); }
-.btn--primary:hover { background: var(--accent); }
-.btn--ghost { border-color: var(--line); color: var(--ink); }
-.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn--primary:hover { background: var(--accent); color: var(--bg); }
+.btn--ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--ink) 28%, var(--line));
+  color: var(--ink);
+}
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
 
 /* ---------- Section heads ---------- */
 .section__head {
@@ -395,7 +402,7 @@ main { display: block; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(22, 22, 26, .12);
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--ink) 16%, transparent);
 }
 .consent[hidden] { display: none; }
 .consent__text {
@@ -406,8 +413,19 @@ main { display: block; }
 }
 .consent__text a { color: var(--accent); }
 .consent__actions { display: flex; justify-content: flex-end; gap: .55rem; }
-.consent .btn { padding: .55rem 1.1rem; font-size: .9rem; }
+.consent .btn {
+  min-width: 6.2rem; padding: .55rem 1.1rem; font-size: .9rem;
+}
 .consent .btn:hover { transform: none; }
+.consent .btn--ghost {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--ink) 40%, transparent);
+  color: var(--ink);
+}
+.consent .btn--primary {
+  background: var(--ink);
+  color: var(--bg);
+}
 
 /* ---------- Legal pages ---------- */
 .legal { padding-bottom: clamp(2.5rem, 7vw, 5rem); }
