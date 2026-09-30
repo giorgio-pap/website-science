@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89HEVGDWX1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-89HEVGDWX1');
-</script>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giorgio Papitto — Digital Therapeutics &amp; Cognitive Neuroscience</title>
@@ -529,8 +518,19 @@
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Giorgio Papitto</p>
-    <p class="site-footer__note">Digital therapeutics · cognitive neuroscience.</p>
+    <p class="site-footer__links"><a href="/privacy.html">Datenschutz</a></p>
   </footer>
+
+  <aside class="consent" id="consent" hidden>
+    <p class="consent__text">
+      This site can use Google Analytics to count visits. It stays off unless you agree.
+      <a href="/privacy.html">Privacy policy</a>
+    </p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost" id="consent-decline">Decline</button>
+      <button type="button" class="btn btn--primary" id="consent-accept">Accept</button>
+    </div>
+  </aside>
 
   <script src="main.js"></script>
 </body>
