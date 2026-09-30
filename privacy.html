@@ -7,7 +7,14 @@
   <meta name="description" content="Privacy policy / Datenschutzerklärung for giorgiopapitto.eu." />
   <meta name="author" content="Giorgio Papitto" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="theme-color" content="#0a8f5c" />
+  <meta name="theme-color" content="#07794d" />
+  <script>
+    try {
+      var t = localStorage.getItem("theme") ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://www.giorgiopapitto.eu/privacy.html" />
 </head>
@@ -15,7 +22,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
-    <nav class="nav" aria-label="Primary">
+    <nav class="nav nav--simple" aria-label="Primary">
       <a class="nav__brand" href="/" aria-label="Giorgio Papitto — home">
         <span class="nav__mark" aria-hidden="true">◉</span>
         <span class="nav__name">Giorgio Papitto</span>
@@ -23,6 +30,7 @@
       <ul class="nav__menu" id="nav-menu">
         <li><a href="/">Home</a></li>
         <li><a href="/privacy.html" class="is-active">Datenschutz</a></li>
+        <li><a href="/impressum.html">Impressum</a></li>
         <li>
           <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch colour theme" title="Switch theme">
             <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
@@ -40,12 +48,13 @@
       <p class="hero__role">Datenschutzerklärung</p>
     </section>
 
-    <section class="section legal" aria-labelledby="privacy-title">
+    <section class="section legal" aria-labelledby="privacy-body-title">
+      <h2 id="privacy-body-title" class="visually-hidden">Details</h2>
       <div class="prose">
         <p>
           This page explains what happens to your data when you visit
           <a href="https://www.giorgiopapitto.eu">giorgiopapitto.eu</a>.
-          It is a personal site. It is not legal advice.
+          It is a personal site.
         </p>
       </div>
 
@@ -53,17 +62,28 @@
       <div class="prose">
         <p>
           Giorgio Papitto<br />
+          Via Provinciale 28<br />
+          03011, Alatri (FR)<br />
+          Italy<br />
           Email: <a href="mailto:info.giorgiopapitto@gmail.com">info.giorgiopapitto@gmail.com</a>
+        </p>
+        <p>
+          See also the <a href="/impressum.html">Impressum</a>.
         </p>
       </div>
 
       <h2>Hosting</h2>
       <div class="prose">
         <p>
-          The site is hosted on GitHub Pages (GitHub, Inc.). When you open a page,
+          The site is hosted on GitHub Pages (GitHub, Inc., USA). When you open a page,
           your browser sends a request that typically includes your IP address,
           browser type, and the page you asked for. GitHub uses this to deliver
-          the site. See GitHub’s own privacy statement for how they handle that.
+          the site. The legal basis is legitimate interest under Art. 6(1)(f) GDPR:
+          serving the pages you requested.
+        </p>
+        <p>
+          GitHub may process that data in the United States. GitHub, Inc. is certified
+          under the EU–US Data Privacy Framework.
         </p>
       </div>
 
@@ -86,7 +106,15 @@
         <p>
           If you agree, Google may set cookies or similar identifiers and collect
           how you use the site (pages, device, approximate location derived from
-          IP). That data can be processed in the United States.
+          IP). That data can be processed in the United States. Google LLC is
+          certified under the EU–US Data Privacy Framework.
+        </p>
+        <p>
+          The legal basis is your consent: Art. 6(1)(a) GDPR and § 25(1) TDDDG.
+          You can withdraw consent at any time, with effect for the future, by
+          clicking Decline or the button below. Withdrawal does not affect
+          processing that already happened. If you withdraw, the analytics
+          cookies this site set are deleted.
         </p>
         <p>
           You can change your choice at any time:
@@ -104,7 +132,8 @@
           (MetaBrainz Foundation). Your browser requests that public feed from
           ListenBrainz. ListenBrainz can see your IP address. This is not
           advertising; it only fills the small listening card. If the request
-          fails, the card stays hidden.
+          fails, the card stays hidden. The legal basis is legitimate interest
+          under Art. 6(1)(f) GDPR: showing the widget you came to the page to see.
         </p>
       </div>
 
@@ -126,19 +155,16 @@
       <h2>Your rights</h2>
       <div class="prose">
         <p>
-          If you are in the EU, you can ask what data is held about you, ask for
-          it to be corrected or deleted, and object to processing. For this site
-          the practical contact is the email above. You can also complain to the
-          data-protection authority in your German state, or to the authority
-          where you live.
+          If you are in the EU, you can ask for access to data held about you,
+          ask for it to be corrected or deleted, ask for restriction of processing,
+          ask for data portability, and object to processing based on legitimate
+          interest. Where processing is based on consent, you can withdraw that
+          consent at any time, with effect for the future.
         </p>
-      </div>
-
-      <h2>Impressum</h2>
-      <div class="prose">
         <p>
-          A separate imprint with a postal address still needs to be added.
-          Until then, use the email above.
+          For this site the practical contact is the email above. You can also
+          complain to the data-protection authority in your German state, or to
+          the authority where you live.
         </p>
       </div>
     </section>
@@ -146,7 +172,10 @@
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Giorgio Papitto</p>
-    <p class="site-footer__links"><a href="/privacy.html">Datenschutz</a></p>
+    <p class="site-footer__links">
+      <a href="/privacy.html">Datenschutz</a>
+      <a href="/impressum.html">Impressum</a>
+    </p>
   </footer>
 
   <aside class="consent" id="consent" hidden>
@@ -156,7 +185,7 @@
     </p>
     <div class="consent__actions">
       <button type="button" class="btn btn--ghost" id="consent-decline">Decline</button>
-      <button type="button" class="btn btn--primary" id="consent-accept">Accept</button>
+      <button type="button" class="btn btn--ghost" id="consent-accept">Accept</button>
     </div>
   </aside>
 
