@@ -12,10 +12,17 @@
   var initial = stored || (prefersDark ? "dark" : "light");
   root.setAttribute("data-theme", initial);
 
+  function syncThemePressed() {
+    if (!toggle) return;
+    toggle.setAttribute("aria-pressed", root.getAttribute("data-theme") === "dark" ? "true" : "false");
+  }
+  syncThemePressed();
+
   if (toggle) {
     toggle.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
+      syncThemePressed();
       try { localStorage.setItem("theme", next); } catch (e) {}
     });
   }
