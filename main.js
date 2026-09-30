@@ -61,6 +61,38 @@
     sections.forEach(function (s) { observer.observe(s); });
   }
 
+  /* ---------- Listening (ListenBrainz) ---------- */
+  var listening = document.getElementById("listening");
+  var listeningLabel = document.getElementById("listening-label");
+  var listeningTrack = document.getElementById("listening-track");
+  var lbApi = "https://api.listenbrainz.org/1/user/gio_pap/";
+
+  function firstListen(url) {
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      return res.json();
+    }).then(function (data) {
+      var listens = data && data.payload && data.payload.listens;
+      return listens && listens.length ? listens[0].track_metadata : null;
+    });
+  }
+
+  function showTrack(track, label) {
+    if (!track || !track.track_name || !track.artist_name) return;
+    listeningLabel.textContent = label;
+    listeningTrack.textContent = track.track_name + " — " + track.artist_name;
+    listening.hidden = false;
+  }
+
+  if (listening && window.fetch) {
+    firstListen(lbApi + "playing-now").then(function (track) {
+      if (track) return showTrack(track, "Listening now");
+      return firstListen(lbApi + "listens?count=1").then(function (last) {
+        showTrack(last, "Last played");
+      });
+    }).catch(function () {});
+  }
+
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
