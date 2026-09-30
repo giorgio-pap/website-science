@@ -3,11 +3,6 @@
    Design tokens live here. Change these few variables to re-skin the site.
    ========================================================================= */
 
-/* =========================================================================
-   Giorgio Papitto — personal site
-   Design tokens live here. Change these few variables to re-skin the site.
-   ========================================================================= */
-
 /* Self-hosted Inter + Newsreader (SIL Open Font License). No request to Google. */
 @font-face {
   font-family: "Inter";
@@ -409,8 +404,8 @@ main { display: block; }
 }
 .timeline__item:first-child { border-top: none; }
 .timeline__date { color: var(--ink-faint); font-size: .9rem; font-variant-numeric: tabular-nums; padding-top: .15rem; }
-.timeline__body h4 { margin: 0 0 .3rem; font-size: 1.02rem; letter-spacing: -0.01em; }
-.timeline__body h4 em { color: var(--ink-faint); font-weight: 400; font-size: .85em; }
+.timeline__body h3 { margin: 0 0 .3rem; font-size: 1.02rem; letter-spacing: -0.01em; }
+.timeline__body h3 em { color: var(--ink-faint); font-weight: 400; font-size: .85em; }
 .timeline__body p { margin: 0; color: var(--ink-soft); font-size: .93rem; }
 
 .cv-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: .5rem; }
